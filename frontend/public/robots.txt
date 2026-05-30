@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard
+Disallow: /vendor-dashboard
+Disallow: /customer-dashboard
+
+Sitemap: http://localhost/sewaaja/sitemap.xml

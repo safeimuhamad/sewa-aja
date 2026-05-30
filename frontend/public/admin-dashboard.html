@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/sewaaja/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/sewaaja/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/sewaaja/assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/sewaaja/assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/sewaaja/site.webmanifest">
+    <meta name="robots" content="noindex">
+    <title>Admin Panel - SewaAja</title>
+    <link rel="preload" href="assets/img/sewaaja-logo-wordmark.webp" as="image">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fbff] text-[#071a3d] antialiased">
+    <div class="min-h-screen lg:grid lg:grid-cols-[280px_1fr]">
+        <aside class="border-b border-slate-200 bg-white lg:min-h-screen lg:border-b-0 lg:border-r">
+            <div class="flex h-20 items-center px-5 lg:h-24">
+                <a href="/sewaaja/" aria-label="SewaAja Home">
+                    <img src="assets/img/sewaaja-logo-wordmark.webp" alt="SewaAja" class="h-14 w-44 object-contain object-center">
+                </a>
+            </div>
+            <nav class="grid gap-2 px-5 pb-5 text-sm font-black text-[#061f4f]">
+                <a href="/sewaaja/admin-dashboard" class="rounded-lg bg-[#ff6a00] px-4 py-3 text-white">Admin Panel</a>
+                <a href="/sewaaja/vendor-dashboard" class="rounded-lg px-4 py-3 hover:bg-slate-50 hover:text-[#ff6a00]">Vendor Panel</a>
+                <a href="/sewaaja/products" class="rounded-lg px-4 py-3 hover:bg-slate-50 hover:text-[#ff6a00]">Katalog</a>
+                <button id="logoutButton" class="rounded-lg px-4 py-3 text-left hover:bg-slate-50 hover:text-[#ff6a00]" type="button">Keluar</button>
+            </nav>
+        </aside>
+
+        <main class="px-4 py-6 sm:px-6 lg:px-8">
+            <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                    <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]">SewaAja Control Center</p>
+                    <h1 class="mt-2 text-3xl font-black text-[#061f4f] sm:text-4xl">Admin management panel</h1>
+                    <p class="mt-2 text-sm font-semibold text-slate-500" id="adminName">Admin SewaAja</p>
+                </div>
+            </div>
+
+            <div id="adminAlert" hidden></div>
+
+            <section id="adminStats" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-6" aria-label="Statistik admin">
+                <article class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                    <p class="h-4 w-24 rounded bg-slate-100"></p>
+                    <strong class="mt-4 block h-8 w-16 rounded bg-slate-100">&nbsp;</strong>
+                </article>
+            </section>
+
+            <section id="adminSales" class="mt-6 grid gap-6 lg:grid-cols-2"></section>
+
+            <section class="mt-6 rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+                    <div>
+                        <h2 id="tableTitle" class="text-xl font-black text-[#061f4f]">Vendor Approval</h2>
+                        <p class="mt-1 text-sm font-semibold text-slate-500">Kelola approval, moderation, booking, payment, dan user dari satu tabel.</p>
+                    </div>
+                    <div class="grid gap-3 sm:grid-cols-[220px_160px_130px]">
+                        <input id="adminSearch" type="search" class="h-11 rounded-lg border border-slate-200 px-4 text-sm outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10" placeholder="Cari data...">
+                        <select id="adminStatus" class="h-11 rounded-lg border border-slate-200 px-3 text-sm outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10"></select>
+                        <select id="adminPerPage" class="h-11 rounded-lg border border-slate-200 px-3 text-sm outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10">
+                            <option value="10">10 / page</option>
+                            <option value="20">20 / page</option>
+                            <option value="50">50 / page</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="adminTabs" class="mt-5 flex flex-wrap gap-2"></div>
+
+                <form id="cmsForm" class="mt-5 hidden rounded-lg border border-[#ff6a00]/20 bg-[#fff7f1] p-4">
+                    <input type="hidden" id="cmsId">
+                    <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                        <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                            Nama
+                            <input id="cmsName" class="h-11 rounded-lg border border-slate-200 px-3 text-sm font-bold normal-case tracking-normal outline-none focus:border-[#ff6a00]" type="text" required>
+                        </label>
+                        <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                            Slug / Kode
+                            <input id="cmsSlug" class="h-11 rounded-lg border border-slate-200 px-3 text-sm font-bold normal-case tracking-normal outline-none focus:border-[#ff6a00]" type="text">
+                        </label>
+                        <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                            Icon / Tipe
+                            <input id="cmsIcon" class="h-11 rounded-lg border border-slate-200 px-3 text-sm font-bold normal-case tracking-normal outline-none focus:border-[#ff6a00]" type="text">
+                        </label>
+                        <label class="grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                            Urutan / Provinsi
+                            <input id="cmsExtra" class="h-11 rounded-lg border border-slate-200 px-3 text-sm font-bold normal-case tracking-normal outline-none focus:border-[#ff6a00]" type="text">
+                        </label>
+                    </div>
+                    <label class="mt-3 grid gap-1 text-xs font-black uppercase tracking-[0.08em] text-slate-500">
+                        Deskripsi
+                        <textarea id="cmsDescription" class="min-h-20 rounded-lg border border-slate-200 px-3 py-2 text-sm font-bold normal-case tracking-normal outline-none focus:border-[#ff6a00]"></textarea>
+                    </label>
+                    <div class="mt-4 flex flex-wrap gap-3">
+                        <button class="rounded-full bg-[#ff6a00] px-5 py-3 text-sm font-black text-white" type="submit">Simpan</button>
+                        <button id="cmsReset" class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-black text-[#061f4f]" type="button">Reset</button>
+                    </div>
+                </form>
+
+                <div class="mt-5 overflow-x-auto rounded-lg border border-slate-100">
+                    <table class="min-w-full text-left">
+                        <thead id="tableHead" class="bg-slate-50 text-xs font-black uppercase tracking-[0.12em] text-slate-500"></thead>
+                        <tbody id="tableBody">
+                            <tr><td class="px-4 py-8 text-center text-sm font-semibold text-slate-500">Memuat data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="adminPagination" class="mt-5 flex flex-col items-center justify-between gap-3 sm:flex-row"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/auth-store.js"></script>
+    <script src="assets/js/admin-api.js"></script>
+    <script src="assets/js/admin-dashboard.js"></script>
+</body>
+</html>

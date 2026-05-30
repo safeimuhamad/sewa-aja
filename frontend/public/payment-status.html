@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/sewaaja/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/sewaaja/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/sewaaja/assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/sewaaja/assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/sewaaja/site.webmanifest">
+    <title>Status Pembayaran - SewaAja</title>
+    <script>
+        window.tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#061f4f',
+                        orangeBrand: '#ff6a00',
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fbff] text-[#071a3d] antialiased">
+    <main class="mx-auto flex min-h-screen max-w-2xl items-center px-4">
+        <section class="w-full rounded-lg border border-slate-100 bg-white p-8 text-center shadow-[0_24px_70px_rgba(6,31,79,0.12)]">
+            <img src="assets/img/sewaaja-logo-wordmark.webp" alt="SewaAja" class="mx-auto h-20 w-60 object-contain object-center">
+            <p class="mt-8 text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]">Payment status</p>
+            <h1 class="mt-2 text-3xl font-black text-[#061f4f]">Pembayaran sedang diproses</h1>
+            <p class="mt-4 text-slate-600">Midtrans akan mengirim webhook ke sistem SewaAja. Status booking akan diperbarui otomatis setelah notifikasi diterima.</p>
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                <a href="/sewaaja/checkout" class="rounded-full border border-slate-200 px-6 py-3 text-sm font-black text-[#061f4f]">Kembali ke Checkout</a>
+                <a href="/sewaaja/products" class="rounded-full bg-[#ff6a00] px-6 py-3 text-sm font-black text-white">Lihat Katalog</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.DS_Store
+.env
+vendor/
+node_modules/
+storage/logs/*.log
+*.tmp
+*.cache
+
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dependencies
+vendor/
+node_modules/
+composer.phar
+
+# Runtime / cache / logs / uploads
+storage/*
+!storage/.gitkeep
+writable/cache/*
+writable/logs/*
+writable/uploads/*
+application/cache/*
+application/logs/*
+public/uploads/*
+uploads/*
+cache/*
+logs/*
+*.log
+*.tmp
+*.cache
+
+# Build output
+build/
+dist/
+.dart_tool/
+
+# Archives / backups
+*.zip
+*.tar
+*.tar.gz
+*.bak
+backup/
+backups/
+*_backup/

@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /sewaaja/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1 [R=302,L]
+
+RewriteRule ^$ frontend/public/index.html [L]
+
+RewriteRule ^(assets|uploads)/(.*)$ frontend/public/$1/$2 [L]
+RewriteRule ^(robots\.txt|sitemap\.xml|favicon\.ico|site\.webmanifest)$ frontend/public/$1 [L]
+
+RewriteRule ^(products|product-detail|checkout|payment-status|login|register|customer-dashboard|customer-booking-detail|vendor-dashboard|vendor-product-form|admin-dashboard)/?$ frontend/public/$1.html [L,QSA]
+
+RewriteRule ^index/?$ frontend/public/index.html [L,QSA]

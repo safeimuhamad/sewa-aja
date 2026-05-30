@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/sewaaja/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/sewaaja/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/sewaaja/assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/sewaaja/assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/sewaaja/site.webmanifest">
+    <meta name="description" content="SewaAja adalah marketplace sewa untuk menemukan barang, perlengkapan event, elektronik, kendaraan, dan kebutuhan harian dari vendor terpercaya.">
+    <meta name="keywords" content="SewaAja, marketplace sewa, sewa barang, rental barang, vendor sewa">
+    <meta property="og:title" content="SewaAja - Apapun, SewaAja">
+    <meta property="og:description" content="Marketplace sewa modern untuk customer dan vendor terpercaya.">
+    <meta property="og:type" content="website">
+    <title>SewaAja - Apapun, SewaAja</title>
+    <link rel="preload" href="assets/img/sewaaja-logo-wordmark.webp" as="image">
+    <script>
+        window.tailwind = window.tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#061f4f',
+                        navySoft: '#0b2f68',
+                        orangeBrand: '#ff6a00',
+                        orangeDark: '#e95d00',
+                        ink: '#071a3d',
+                    },
+                    boxShadow: {
+                        brand: '0 24px 70px rgba(6, 31, 79, 0.12)',
+                        soft: '0 16px 40px rgba(6, 31, 79, 0.08)',
+                    },
+                },
+            },
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#f8fbff] text-[#071a3d] antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-xl">
+        <nav class="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Navigasi utama">
+            <a href="/sewaaja/" class="flex items-center" aria-label="SewaAja Home">
+                <img src="assets/img/sewaaja-logo-wordmark.webp" alt="SewaAja" class="h-20 w-64 object-contain object-center">
+            </a>
+            <button id="mobileMenuButton" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-[#061f4f] lg:hidden" type="button" aria-controls="mobileMenu" aria-expanded="false">
+                <span class="sr-only" data-i18n="nav.openMenu">Buka menu</span>
+                <span class="block h-0.5 w-5 bg-current" aria-hidden="true">&nbsp;</span>
+            </button>
+            <div class="hidden items-center gap-8 lg:flex" id="desktopMenu">
+                <a href="/sewaaja/products" class="text-sm font-bold text-[#061f4f] transition hover:text-[#ff6a00]" data-i18n="nav.catalog">Katalog</a>
+                <a href="#categories" class="text-sm font-bold text-[#061f4f] transition hover:text-[#ff6a00]" data-i18n="nav.categories">Kategori</a>
+                <a href="#vendors" class="text-sm font-bold text-[#061f4f] transition hover:text-[#ff6a00]" data-i18n="nav.vendors">Vendor</a>
+                <a href="#how" class="text-sm font-bold text-[#061f4f] transition hover:text-[#ff6a00]" data-i18n="nav.how">Cara Sewa</a>
+            </div>
+            <div class="hidden rounded-full border border-slate-200 bg-white p-1 lg:flex" aria-label="Pilih bahasa">
+                <button class="rounded-full px-3 py-2 text-xs font-black text-[#061f4f] transition data-[active=true]:bg-[#061f4f] data-[active=true]:text-white" type="button" data-lang-option="id">ID</button>
+                <button class="rounded-full px-3 py-2 text-xs font-black text-[#061f4f] transition data-[active=true]:bg-[#061f4f] data-[active=true]:text-white" type="button" data-lang-option="en">EN</button>
+            </div>
+            <div class="hidden items-center gap-3 lg:flex" id="desktopAuthMenu">
+                <a href="/sewaaja/login" class="rounded-full px-5 py-3 text-sm font-extrabold text-[#061f4f] transition hover:text-[#ff6a00]" data-i18n="nav.login">Masuk</a>
+                <a href="/sewaaja/register" class="rounded-full bg-[#ff6a00] px-6 py-3 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(255,106,0,0.22)] transition hover:bg-[#e95d00]" data-i18n="nav.register">Daftar</a>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-4 py-4 lg:hidden">
+            <div class="mx-auto grid max-w-7xl gap-3">
+                <a href="/sewaaja/products" class="rounded-lg px-3 py-2 text-sm font-bold text-[#061f4f]" data-i18n="nav.catalog">Katalog</a>
+                <a href="#categories" class="rounded-lg px-3 py-2 text-sm font-bold text-[#061f4f]" data-i18n="nav.categories">Kategori</a>
+                <a href="#vendors" class="rounded-lg px-3 py-2 text-sm font-bold text-[#061f4f]" data-i18n="nav.vendors">Vendor</a>
+                <a href="#how" class="rounded-lg px-3 py-2 text-sm font-bold text-[#061f4f]" data-i18n="nav.how">Cara Sewa</a>
+                <div class="grid grid-cols-2 gap-2 rounded-lg border border-slate-200 bg-white p-1" aria-label="Pilih bahasa">
+                    <button class="rounded-md px-3 py-2 text-xs font-black text-[#061f4f] transition data-[active=true]:bg-[#061f4f] data-[active=true]:text-white" type="button" data-lang-option="id">Indonesia</button>
+                    <button class="rounded-md px-3 py-2 text-xs font-black text-[#061f4f] transition data-[active=true]:bg-[#061f4f] data-[active=true]:text-white" type="button" data-lang-option="en">English</button>
+                </div>
+                <div class="grid grid-cols-2 gap-3 pt-2" id="mobileAuthMenu">
+                    <a href="/sewaaja/login" class="rounded-full border border-slate-200 px-5 py-3 text-center text-sm font-extrabold text-[#061f4f]" data-i18n="nav.login">Masuk</a>
+                    <a href="/sewaaja/register" class="rounded-full bg-[#ff6a00] px-5 py-3 text-center text-sm font-extrabold text-white" data-i18n="nav.register">Daftar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative overflow-hidden bg-white">
+            <div id="homepageSlider" class="relative min-h-[620px] bg-[#061f4f] text-white sm:min-h-[680px] lg:min-h-[720px]">
+                <div id="homepageSlides" class="h-full"></div>
+                <button id="sliderPrev" class="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl font-black text-[#061f4f] shadow-lg transition hover:bg-[#ff6a00] hover:text-white sm:left-8" type="button" aria-label="Slide sebelumnya">‹</button>
+                <button id="sliderNext" class="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl font-black text-[#061f4f] shadow-lg transition hover:bg-[#ff6a00] hover:text-white sm:right-8" type="button" aria-label="Slide berikutnya">›</button>
+                <div id="sliderDots" class="absolute bottom-36 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:bottom-32" aria-label="Navigasi slider"></div>
+            </div>
+
+            <div class="relative z-30 mx-auto -mt-24 max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+                <form id="heroSearchForm" class="grid gap-3 rounded-lg border border-slate-100 bg-white p-3 shadow-[0_24px_70px_rgba(6,31,79,0.16)] lg:grid-cols-[1fr_180px_180px_auto]" action="/sewaaja/products">
+                    <div>
+                        <label for="heroSearch" class="mb-2 block text-sm font-black text-[#061f4f]" data-i18n="search.what">Mau sewa apa?</label>
+                        <input id="heroSearch" name="q" type="search" class="h-12 w-full rounded-lg border border-slate-200 px-4 outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10" placeholder="Cari kamera, tenda, mobil..." data-i18n-placeholder="search.placeholder">
+                    </div>
+                    <div>
+                        <label for="quickCategory" class="mb-2 block text-sm font-black text-[#061f4f]" data-i18n="search.category">Kategori</label>
+                        <select id="quickCategory" name="category" class="h-12 w-full rounded-lg border border-slate-200 px-3 outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10">
+                            <option value="" data-i18n="common.all">Semua</option>
+                            <option value="elektronik" data-i18n="category.electronics">Elektronik</option>
+                            <option value="kamera-fotografi">Kamera & Fotografi</option>
+                            <option value="perlengkapan-event">Perlengkapan Event</option>
+                            <option value="kendaraan">Kendaraan</option>
+                            <option value="perkakas-mesin">Perkakas & Mesin</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="quickLocation" class="mb-2 block text-sm font-black text-[#061f4f]" data-i18n="search.location">Lokasi</label>
+                        <select id="quickLocation" name="location" class="h-12 w-full rounded-lg border border-slate-200 px-3 outline-none focus:border-[#ff6a00] focus:ring-4 focus:ring-[#ff6a00]/10">
+                            <option value="" data-i18n="common.all">Semua</option>
+                            <option>Jakarta</option>
+                            <option>Bandung</option>
+                            <option>Surabaya</option>
+                        </select>
+                    </div>
+                    <button id="quickSearchButton" class="self-end rounded-full bg-[#ff6a00] px-7 py-4 text-sm font-black text-white shadow-[0_14px_28px_rgba(255,106,0,0.22)] transition hover:bg-[#e95d00]" type="button" data-i18n="search.button">Cari Sekarang</button>
+                </form>
+
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    <div class="rounded-lg border border-slate-100 bg-white p-5 shadow-[0_16px_40px_rgba(6,31,79,0.08)]">
+                        <strong class="block text-3xl font-black text-[#061f4f]">2K+</strong>
+                        <span class="mt-1 block text-sm font-semibold text-slate-500" data-i18n="metrics.products">produk siap disewa</span>
+                    </div>
+                    <div class="rounded-lg border border-slate-100 bg-white p-5 shadow-[0_16px_40px_rgba(6,31,79,0.08)]">
+                        <strong class="block text-3xl font-black text-[#061f4f]">120+</strong>
+                        <span class="mt-1 block text-sm font-semibold text-slate-500" data-i18n="metrics.vendors">vendor aktif terverifikasi</span>
+                    </div>
+                    <div class="rounded-lg border border-slate-100 bg-white p-5 shadow-[0_16px_40px_rgba(6,31,79,0.08)]">
+                        <strong class="block text-3xl font-black text-[#061f4f]">18</strong>
+                        <span class="mt-1 block text-sm font-semibold text-slate-500" data-i18n="metrics.cities">kota layanan rental</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div>
+                    <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]" data-i18n="sections.categories.eyebrow">Kategori</p>
+                    <h2 class="mt-2 text-3xl font-black text-[#061f4f] sm:text-4xl" data-i18n="sections.categories.title">Mulai dari kebutuhanmu</h2>
+                </div>
+                <a href="/sewaaja/products" class="text-sm font-black text-[#ff6a00]" data-i18n="sections.categories.link">Lihat semua kategori</a>
+            </div>
+            <div id="categoryGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+        </section>
+
+        <section class="bg-white py-16">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                    <div>
+                        <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]" data-i18n="sections.featured.eyebrow">Produk unggulan</p>
+                        <h2 class="mt-2 text-3xl font-black text-[#061f4f] sm:text-4xl" data-i18n="sections.featured.title">Sering dicari minggu ini</h2>
+                    </div>
+                    <a href="/sewaaja/products" class="rounded-full border border-slate-200 px-5 py-3 text-sm font-black text-[#061f4f] transition hover:border-[#ff6a00] hover:text-[#ff6a00]" data-i18n="sections.featured.link">Jelajah katalog</a>
+                </div>
+                <div id="featuredGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+            </div>
+        </section>
+
+        <section id="vendors" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mb-8 max-w-2xl">
+                <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]" data-i18n="sections.vendors.eyebrow">Vendor populer</p>
+                <h2 class="mt-2 text-3xl font-black text-[#061f4f] sm:text-4xl" data-i18n="sections.vendors.title">Partner rental terpercaya</h2>
+                <p class="mt-3 text-slate-600" data-i18n="sections.vendors.copy">Vendor dengan katalog aktif, response cepat, dan rating tinggi di komunitas SewaAja.</p>
+            </div>
+            <div id="vendorGrid" class="grid gap-5 md:grid-cols-3"></div>
+        </section>
+
+        <section id="how" class="bg-[#061f4f] py-16 text-white">
+            <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+                <div>
+                    <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]" data-i18n="sections.how.eyebrow">Cara sewa</p>
+                    <h2 class="mt-2 text-3xl font-black sm:text-4xl" data-i18n="sections.how.title">Dari cari barang sampai dipakai, alurnya singkat.</h2>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-3">
+                    <div class="rounded-lg bg-white/10 p-5 ring-1 ring-white/15">
+                        <span class="text-3xl font-black text-[#ff6a00]">01</span>
+                        <h3 class="mt-4 text-lg font-black" data-i18n="how.search.title">Cari</h3>
+                        <p class="mt-2 text-sm leading-6 text-white/70" data-i18n="how.search.copy">Pilih kategori, lokasi, harga, dan vendor yang paling cocok.</p>
+                    </div>
+                    <div class="rounded-lg bg-white/10 p-5 ring-1 ring-white/15">
+                        <span class="text-3xl font-black text-[#ff6a00]">02</span>
+                        <h3 class="mt-4 text-lg font-black" data-i18n="how.booking.title">Booking</h3>
+                        <p class="mt-2 text-sm leading-6 text-white/70" data-i18n="how.booking.copy">Ajukan jadwal sewa dan tunggu konfirmasi ketersediaan barang.</p>
+                    </div>
+                    <div class="rounded-lg bg-white/10 p-5 ring-1 ring-white/15">
+                        <span class="text-3xl font-black text-[#ff6a00]">03</span>
+                        <h3 class="mt-4 text-lg font-black" data-i18n="how.use.title">Pakai</h3>
+                        <p class="mt-2 text-sm leading-6 text-white/70" data-i18n="how.use.copy">Ambil atau kirim barang sesuai kesepakatan dengan vendor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="grid overflow-hidden rounded-lg bg-white shadow-[0_24px_70px_rgba(6,31,79,0.12)] lg:grid-cols-[1fr_auto]">
+                <div class="p-8 sm:p-10">
+                    <p class="text-sm font-black uppercase tracking-[0.16em] text-[#ff6a00]" data-i18n="cta.eyebrow">Gabung sekarang</p>
+                    <h2 class="mt-3 max-w-3xl text-3xl font-black text-[#061f4f] sm:text-5xl" data-i18n="cta.title">Punya barang produktif? Sewakan di SewaAja.</h2>
+                    <p class="mt-4 max-w-2xl text-slate-600" data-i18n="cta.copy">Bangun toko rental digital, kelola produk, dan jangkau customer yang memang sedang mencari barang sewaan.</p>
+                </div>
+                <div class="flex flex-col justify-center gap-3 bg-[#fff7f1] p-8 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
+                    <a href="/sewaaja/register?role=vendor" class="rounded-full bg-[#ff6a00] px-7 py-4 text-center text-sm font-black text-white transition hover:bg-[#e95d00]" data-i18n="cta.vendor">Daftar Vendor</a>
+                    <a href="/sewaaja/products" class="rounded-full border border-[#ff6a00]/30 bg-white px-7 py-4 text-center text-sm font-black text-[#061f4f] transition hover:border-[#ff6a00]" data-i18n="cta.catalog">Lihat Katalog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-100 bg-white">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-8">
+            <div>
+                <img src="assets/img/sewaaja-logo-wordmark.webp" alt="SewaAja" class="h-16 w-48 object-contain object-center">
+                <p class="mt-4 max-w-sm text-sm leading-6 text-slate-600" data-i18n="footer.copy">SewaAja membantu customer menemukan barang sewaan dan membantu vendor mengelola katalog rental secara modern.</p>
+            </div>
+            <div>
+                <h3 class="font-black text-[#061f4f]">Marketplace</h3>
+                <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-500">
+                    <li><a href="/sewaaja/products" class="hover:text-[#ff6a00]" data-i18n="nav.catalog">Katalog</a></li>
+                    <li><a href="#categories" class="hover:text-[#ff6a00]" data-i18n="nav.categories">Kategori</a></li>
+                    <li><a href="#vendors" class="hover:text-[#ff6a00]" data-i18n="nav.vendors">Vendor</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-black text-[#061f4f]" data-i18n="footer.account">Akun</h3>
+                <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-500">
+                    <li><a href="/sewaaja/login" class="hover:text-[#ff6a00]" data-i18n="nav.login">Masuk</a></li>
+                    <li><a href="/sewaaja/register" class="hover:text-[#ff6a00]" data-i18n="footer.registerCustomer">Daftar Customer</a></li>
+                    <li><a href="/sewaaja/register?role=vendor" class="hover:text-[#ff6a00]" data-i18n="footer.registerVendor">Daftar Vendor</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-black text-[#061f4f]" data-i18n="footer.contact">Kontak</h3>
+                <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-500">
+                    <li>hello@sewaaja.test</li>
+                    <li>Jakarta, Indonesia</li>
+                    <li>Apapun, SewaAja</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-100 py-5 text-center text-sm font-semibold text-slate-500" data-i18n="footer.rights">© 2026 SewaAja. Semua hak dilindungi.</div>
+    </footer>
+
+    <script src="assets/js/auth-store.js"></script>
+    <script src="assets/js/homepage.js"></script>
+</body>
+</html>
